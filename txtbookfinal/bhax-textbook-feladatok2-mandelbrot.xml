@@ -24,14 +24,21 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog1_6.pdf (28-32 
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
-        <para>
-            Visual Paradigm program instant reverse funkcióját használva a következő UML osztálydiagrammot kaptam:
+                <para>
+            A Visual Paradigm nevű program "Instant Reverse" funkcióját használva a C++ forráskódot UML osztálydiagrammá alakítottam:. 
         </para>
+        
         <mediaobject>
-        <imageobject>
-        <imagedata fileref="img/binfa1.PNG" format="PNG" scale="75"/>
-        </imageobject>
+            <imageobject>
+                <imagedata fileref="img/binfa1.jpg" scale="90" />
+            </imageobject>
         </mediaobject>
+        
+        <para>
+            Az osztálydiagram az osztályok kapcsolatrendszerének összefoglalása.  Az asszociációk két osztály, vagy két objektum közötti viszonyt fejeznek ki.
+            Ebben az UML diagramban az aggregációt üres rombusz jelenti (gyenge tartalmazás), ebben az esetben, a rész az egészhez tartozik, de önmagában is létező entitás.
+            A kompozíciót pedig a csúcsára állított teli rombusz jelöli (erős tartalmazás). Ebben az esetben a rész önmagában nem létezhet, csak az egész elemként.
+        </para>
         
     </section>        
 
@@ -50,14 +57,83 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog1_6.pdf (28-32 
             Tanulságok, tapasztalatok, magyarázat...
         </para>
         <para>
-            A Visual Paradigm nevű program "Instant Reverse" funkcióját használva a C++ forráskódot UML osztálydiagrammá alakítottam:. 
+            Továbbra is a visual paradigm segítségével, az alábbi kódokat kaptam:
         </para>
         
-        <mediaobject>
-            <imageobject>
-                <imagedata fileref="img/binfa1.jpg" scale="90" />
-            </imageobject>
-        </mediaobject>
+        <para>
+
+<programlisting language="C++"><![CDATA[
+#include <exception>
+using namespace std;
+
+#include "LZWBinFa.h"
+#include "Csomopont.h"
+
+LZWBinFa::LZWBinFa() {
+}
+
+void LZWBinFa::_LZWBinFa() {
+	throw "Not yet implemented";
+}
+
+void LZWBinFa::_<(char aB) {
+	throw "Not yet implemented";
+}
+
+void LZWBinFa::kiir() {
+	throw "Not yet implemented";
+}
+
+int LZWBinFa::getMelyseg() {
+	return this->_melyseg;
+}
+
+double LZWBinFa::getAtlag() {
+	return this->_atlag;
+}
+
+double LZWBinFa::getSzoras() {
+	return this->_szoras;
+}
+
+void LZWBinFa::kiir(std::ostream& aOs) {
+	throw "Not yet implemented";
+}
+
+LZWBinFa::LZWBinFa(const LZWBinFa& aUnnamed_1) {
+}
+
+LZWBinFa& LZWBinFa::_(const LZWBinFa& aUnnamed_1) {
+	throw "Not yet implemented";
+}
+
+void LZWBinFa::kiir(Csomopont* aElem, std::ostream& aOs) {
+	throw "Not yet implemented";
+}
+
+void LZWBinFa::szabadit(Csomopont* aElem) {
+	throw "Not yet implemented";
+}
+
+void LZWBinFa::rmelyseg(Csomopont* aElem) {
+	throw "Not yet implemented";
+}
+
+void LZWBinFa::ratlag(Csomopont* aElem) {
+	throw "Not yet implemented";
+}
+
+void LZWBinFa::rszoras(Csomopont* aElem) {
+	throw "Not yet implemented";
+}
+
+f]]>
+</programlisting>
+    </para>
+    <para>
+        A header fileok szinte teljesen megegyeznek az eredetivel.
+    </para>
+
     </section> 
 	    <section>
         <title>Egy esettan</title>
@@ -90,6 +166,16 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_7.pdf (34-47 
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+        <para>
+            Online elkészített ábra pizza rendelésről:
+        </para>
+        
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="img/diagram.jpg" scale="90" />
+            </imageobject>
+        </mediaobject>
+        
     </section> 
 	
 	    <section>
