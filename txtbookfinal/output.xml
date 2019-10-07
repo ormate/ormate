@@ -1,0 +1,1707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">    
+    
+    <info xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+
+    <title xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">Univerzális programozás</title>               
+
+    <subtitle xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">Írd meg a saját programozás tankönyvedet!</subtitle>               
+
+    <titleabbrev xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">BHAX KÖNYV</titleabbrev>               
+
+    <authorgroup xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+     <author>
+        <personname>
+            <honorific>Dr</honorific>
+            <surname>Bátfai</surname>
+            <firstname>Norbert</firstname>        
+        </personname>    
+        <affiliation>
+            <shortaffil>E. adjunktus, DE.</shortaffil>
+            <jobtitle>Egyetemi adjunktus</jobtitle>
+            <orgname>Debreceni Egyetem</orgname>
+            <orgdiv>Információtechnológiai Tanszék</orgdiv>
+            <address>
+                <email>batfai.norbert@inf.unideb.hu</email>
+                <email>nbatfai@gmail.com</email>
+            </address>
+        </affiliation>
+        <address>
+            <street>Kassai út 26.</street>
+            <city>Debrecen</city>
+            <postcode>4028</postcode>
+            <country>Magyarország</country>
+            <email>batfai.norbert@inf.unideb.hu</email>
+            <otheraddr>
+                <link xlink:href="https://arato.inf.unideb.hu/batfai.norbert/">https://arato.inf.unideb.hu/batfai.norbert/</link>
+            </otheraddr>
+        </address>
+    </author>   
+
+    
+    <author>
+        <personname>
+            <surname>Orosz </surname>
+            <firstname>Máté</firstname>        
+        </personname>    
+        <affiliation>
+            <jobtitle>Egyetemi hallgató</jobtitle>
+            <orgname>Debreceni Egyetem</orgname>
+            <orgdiv>Informatika Kar</orgdiv>
+            <address>
+                <email>ormate99@gmail.com</email>
+            </address>
+        </affiliation>
+    </author>    
+</authorgroup>               
+
+    <edition xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">BHAX, DEBRECEN, 2019. május 09, v. 1.0.0</edition>               
+
+    <pubdate>2019</pubdate>
+    <copyright>
+        <year>2019</year>
+        <holder>Dr. Bátfai Norbert</holder>
+    </copyright>
+        <copyright>
+        <year>2019</year>
+        <holder>Orosz Máté</holder>
+    </copyright>
+    <legalnotice>           
+        <para>                
+            Copyright (C) 2019, Norbert Bátfai Ph.D., batfai.norbert@inf.unideb.hu, nbatfai@gmail.com
+        </para>
+        <para>Copyright (C) 2019, Fórizs Péter, forizspeter13@gmail.com</para>
+        <para>
+            Permission is granted to copy, distribute and/or modify this document
+            under the terms of the GNU Free Documentation License, Version 1.3
+            or any later version published by the Free Software Foundation;
+            with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+            A copy of the license is included in the section entitled "GNU
+            Free Documentation License".                
+        </para>
+        <para>
+            <link xlink:href="https://www.gnu.org/licenses/fdl.html">https://www.gnu.org/licenses/fdl.html</link>                
+        </para>
+            
+        <para>
+            Engedélyt adunk Önnek a jelen dokumentum sokszorosítására, terjesztésére és/vagy módosítására 
+            a Free Software Foundation által kiadott GNU FDL 1.3-as, vagy bármely azt követő verziójának 
+            feltételei alapján. Nincs Nem Változtatható szakasz, nincs Címlapszöveg, nincs Hátlapszöveg.                
+        </para>
+        <para>
+            <link xlink:href="http://gnu.hu/fdl.html">http://gnu.hu/fdl.html</link>                
+        </para>
+    </legalnotice>   
+    
+    <revhistory xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <revision>
+        <revnumber/>
+        <date/>
+        <authorinitials/>
+        <revremark>
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber/>
+        <date/>
+        <authorinitials/>
+        <revremark>
+        </revremark>
+    </revision>    
+    <revision>
+        <revnumber/>
+        <date/>
+        <authorinitials/>
+        <revremark>
+        </revremark>
+    </revision>   
+</revhistory>               
+                               
+</info>     
+        
+    <dedication xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <para>
+
+    </para>
+<blockquote>
+    <attribution>Gregory Chaitin, <citetitle>META MATH! The Quest for Omega</citetitle>, <citation>METAMATH</citation></attribution>
+    <para>
+        „To me, you understand something only if you can program it.  
+        (You, not someone else!)  Otherwise you don’t really understand it, 
+        you only think you understand it.”
+    </para>
+</blockquote>
+</dedication>     
+    
+    <preface xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <title>Előszó</title>
+    <para xml:id="bhax-textbook-pre.Eloszo">
+        Amikor programozónak terveztem állni, ellenezték a környezetemben, mondván, hogy kell  
+        szövegszerkesztő meg táblázatkezelő, de az már van... nem lesz programozói munka.
+    </para>                 
+    <para>
+        Tévedtek. Hogy egy generáció múlva kell-e még tömegesen hús-vér programozó vagy
+        olcsóbb lesz allokálni igény szerint pár robot programozót a felhőből?
+        A programozók dolgozók lesznek vagy papok?
+        Ki tudhatná ma. 
+    </para>
+    <para>
+        Mindenesetre a programozás a teoretikus kultúra csúcsa. A GNU mozgalomban látom annak 
+        garanciáját, hogy ebben a szellemi kalandban a gyerekeim is részt vehessenek majd. Ezért programozunk.
+    </para>          
+    <section>
+        <title>Hogyan forgasd</title>
+        <para>
+            A könyv célja egy stabil programozási szemlélet kialakítása az olvasóban. Módszere, hogy hetekre 
+            bontva ad egy tematikus feladatcsokrot. Minden feladathoz megadja a megoldás forráskódját és forrásokat
+            feldolgozó videókat.
+            Az olvasó feladata, hogy ezek tanulmányozása után maga adja meg a feladat megoldásának lényegi
+            magyarázatát, avagy írja meg a könyvet.
+        </para>
+        <para>
+            Miért univerzális? Mert az olvasótól (kvázi az írótól) függ, hogy kinek szól a könyv. 
+            Alapértelmezésben gyerekeknek, mert velük készítem az iniciális változatot. 
+            Ám tervezem felhasználását az egyetemi programozás oktatásban is. Ahogy szélesedni tudna a 
+            felhasználók köre, akkor lehetne kiadása különböző korosztályú gyerekeknek, családoknak, 
+            szakköröknek, programozás kurzusoknak, felnőtt és továbbképzési műhelyeknek és sorolhatnánk... 
+        </para>
+        <section>
+            <title>Milyen nyelven nyomjuk?</title>
+            <para>
+                C (mutatók), C++ (másoló és mozgató szemantika) és Java (lebutított C++) nyelvekből kell egy jó alap, 
+                ezt kell kiegészíteni pár R (vektoros szemlélet), Python (gépi tanulás bevezető), Lisp és Prolog (hogy lássuk
+                mást is) példával.
+            </para>
+        </section>
+        <section>
+            <title>Hogyan nyomjuk?</title>
+            <para>
+                Rántsd le a <link xlink:href="https://gitlab.com/nbatfai/bhax">https://gitlab.com/nbatfai/bhax</link>
+                git repót, vagy méginkább forkolj belőle magadnak egy sajátot a GitLabon, ha már saját könyvön dolgozol!
+            
+                <screen><![CDATA[]]></screen> 
+            
+            </para>
+            <para>
+                Ha megvannak a könyv DocBook XML forrásai, 
+                akkor az alább látható <command>make</command> parancs ellenőrzi, hogy „jól formázottak” és 
+                „érvényesek-e” ezek az XML források, majd 
+                elkészíti a <application>dblatex</application> programmal a könyved pdf változatát, íme:
+                <screen><![CDATA[batfai@entropy:~$ cd glrepos/bhax/thematic_tutorials/bhax_textbook/
+batfai@entropy:~/glrepos/bhax/thematic_tutorials/bhax_textbook$ make
+rm -f bhax-textbook-fdl.pdf
+xmllint --xinclude bhax-textbook-fdl.xml --output output.xml
+xmllint --relaxng http://docbook.org/xml/5.0/rng/docbookxi.rng output.xml --noout
+output.xml validates
+rm -f output.xml	
+dblatex bhax-textbook-fdl.xml -p bhax-textbook.xls
+Build the book set list...
+Build the listings...
+XSLT stylesheets DocBook - LaTeX 2e (0.3.10)
+===================================================
+Stripping NS from DocBook 5/NG document.
+Processing stripped document.
+Image 'dblatex' not found
+Build bhax-textbook-fdl.pdf
+'bhax-textbook-fdl.pdf' successfully built]]></screen>             
+
+            Ha minden igaz, akkor most éppen ezt a legenerált <filename>bhax-textbook-fdl.pdf</filename> fájlt olvasod.
+            </para>
+<tip>
+              <title>A DocBook XML 5.1 új neked?</title>
+              <para>
+                  Ez esetben forgasd a <link xlink:href="https://tdg.docbook.org/tdg/5.1/">https://tdg.docbook.org/tdg/5.1/</link>
+                  könyvet, a végén találod az informatikai szövegek jelölésére használható gazdag „API” elemenkénti
+                  bemutatását.                  
+              </para>            
+            </tip>            
+        </section>
+        
+    </section>            
+
+</preface> 
+
+    <!-- 
+        <xi:include href="bhax-textbook-glossary.xml">
+            <xi:fallback>
+                <para>
+                    <emphasis>XInclude: bhax-textbook-glossary.xml file not found</emphasis>
+                </para>
+            </xi:fallback>
+        </xi:include> 
+    -->
+
+    <part xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <title>Bevezetés</title>
+    <partintro>
+        <para> 
+        </para>
+    </partintro>
+    <chapter>
+        <info>
+            <title>Vízió</title>
+            <keywordset>
+                <keyword/>
+            </keywordset>
+        </info>
+        <section>
+            <title>Mi a programozás?</title>
+            <para>                  
+                          
+            </para>
+        </section>
+        <section>
+            <title>Milyen doksikat olvassak el?</title>
+            <itemizedlist>
+                <listitem>
+                    <para>Olvasgasd a kézikönyv lapjait, kezd a <command>man man</command> parancs kiadásával. A C programozásban
+                    a 3-as szintű lapokat fogod nézegetni, például az első feladat kapcsán ezt a 
+                    <command>man 3 sleep</command> lapot</para>                        
+                </listitem>
+                <listitem>
+                    <para><citation>KERNIGHANRITCHIE</citation></para>                        
+                </listitem>
+                <listitem>
+                    <para><citation>BMECPP</citation></para>                        
+                </listitem>
+                <listitem>
+                    <para>Az igazi kockák persze csemegéznek a C nyelvi szabvány 
+                        <link xlink:href="https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf">ISO/IEC 9899:2017</link> kódcsipeteiből is.
+                    </para>                        
+                </listitem>
+            </itemizedlist>            
+        </section>
+        <section>
+            <title>Milyen filmeket nézzek meg?</title>
+            <itemizedlist>
+                <listitem>
+                    <para>21 - Las Vegas ostroma, 
+                        <link xlink:href="https://www.imdb.com/title/tt0478087/">https://www.imdb.com/title/tt0478087/</link>,
+                        benne a <link xlink:href="#bhax-textbook-feladatok-turing.MontyHall">Monty Hall probléma</link> bemutatása.
+                    </para>                        
+                </listitem>
+            </itemizedlist> 
+        </section>
+    </chapter>                
+</part>                                                              
+
+    <part xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <title>Második felvonás</title>
+    <partintro>
+        <para> 
+        </para>
+<tip>
+              <title>Bátf41 Haxor Stream</title>
+              <para>
+                  A feladatokkal kapcsolatos élő adásokat sugároz
+                  a <link xlink:href="https://www.twitch.tv/nbatfai">https://www.twitch.tv/nbatfai</link> csatorna,
+                  melynek permanens archívuma a <link xlink:href="https://www.youtube.com/c/nbatfai">https://www.youtube.com/c/nbatfai</link> 
+                  csatornán található.
+              </para>            
+            </tip>    
+        
+    </partintro>
+    
+    <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Arroway!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>OO szemlélet</title>
+        <para>
+		A módosított polártranszformációs normális generátor beprogramozása Java nyelven. Mutassunk rá,
+hogy a mi természetes saját megoldásunk (az algoritmus egyszerre két normálist állít elő, kell egy
+példánytag, amely a nem visszaadottat tárolja és egy logikai tag, hogy van-e tárolt vagy futtatni kell
+az algot.) és az OpenJDK, Oracle JDK-ban a Sun által adott OO szervezés ua.!
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog1_5.pdf (16-22 fólia)
+Ugyanezt írjuk meg C++ nyelven is! (lásd még UDPROG repó: source/labor/polargen)
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+            <para>
+        <programlisting language="c"><![CDATA[
+import java.util.Random;
+import java.io.*;
+import java.lang.Math;
+public class PolarGen	{
+  public final  static int RAND_MAX = 32767;
+  private static boolean bExists;
+  private double dValue;
+  static Random cRandomGenerator = new Random();
+  public PolarGen() { 		
+	bExists = false;
+	cRandomGenerator.setSeed(20); 	
+  };
+  public double PolarGet()	{
+    	if (!bExists)
+  {
+		double u1, u2, v1, v2, w;
+		
+		do{
+			u1 = cRandomGenerator.nextInt (RAND_MAX) / (RAND_MAX + 1.0); 
+			u2 = cRandomGenerator.nextInt (RAND_MAX) / (RAND_MAX + 1.0);
+			v1 = 2 * u1 - 1;
+			v2 = 2 * u2 - 1;
+			w = v1 * v1 + v2 * v2;
+		    }
+		    
+		while (w > 1);
+		double r = Math.sqrt ((-2 * Math.log (w)) / w);
+		dValue = r * v2; 
+		bExists = !bExists;
+		return r * v1; 
+	}
+	else
+	{
+		bExists = !bExists; 
+		return dValue;
+	}
+  };    
+  public static void main(String args[])	{
+    PolarGen cPolarGen = new PolarGen();
+    double  dEredmeny = cPolarGen.PolarGet();
+    System.out.println(dEredmeny);
+  }
+  </para>
+    }]]></programlisting> 
+        </para>
+        <para>   
+            A program ellenőrzi, hogy van e tárolt érték, amennyiben nincs, létrehozza azt a következőképpen: 2 darab -1 és 1 közötti számot hoz létre, majd egyet elvesz, és aztán veszi a négyzetösszegüket. Ez addig ismétlődik, amíg s nagyobb vagy egyenlő mint 1, vagy s egyenlő  0.
+            Ezután felveszzük a multiplier-t, ami az "s" -2-szeres logaritmus hányadosának négyzetgyöke. A tárolt érték multiplier szorozva v2-vel, utána pedig v1 szer multiplier értékét.
+        </para>
+        <para>
+            C++ -ban:
+        </para>
+        
+        
+      
+       
+        <programlisting language="c"><![CDATA[       
+#include<cmath>
+#include <cstdlib>
+#include<ctime>
+using namespace std;
+class PolarGen {
+public:
+    PolarGen (){
+        nincsTarolt = true;
+        srand (time (NULL));
+    }
+    ~PolarGen(){
+    }
+    double kovetkezo ();
+private:
+    bool nincsTarolt;
+    double tarolt;
+};
+double PolarGen::kovetkezo() {
+    if (nincsTarolt) {
+        double u1, u2, v1, v2, w;
+        do {
+            u1 = rand() / (RAND_MAX + 1.0);
+            u2 = rand() / (RAND_MAX + 1.0);
+            v1 = 2 * u1 - 1;
+            v2 = 2 * u2 -1;
+            w = v1 * v1 + v2 * v2;
+        } while ( w > 1);
+        double r = sqrt ((-2* log(w) / w));
+        tarolt = r * v2;
+        nincsTarolt = !nincsTarolt;
+        return r * v1;
+   }
+    else {
+        nincsTarolt = !nincsTarolt;
+      return tarolt;
+    }
+}
+int main(int argc, char** argv) {
+    PolarGen pg;
+    for (int i = 0; i < 10; i++)
+        std::cout<<pg.kovetkezo()<<std::endl;
+    return 0;
+}
+        }]]></programlisting> 
+
+    </section>        
+
+    <section>
+        <title>Homokozó</title>
+        <para>
+rjuk át az első védési programot (LZW binfa) C++ nyelvről Java nyelvre, ugyanúgy működjön!
+Mutassunk rá, hogy gyakorlatilag a pointereket és referenciákat kell kiirtani és minden máris működik
+(erre utal a feladat neve, hogy Java-ban minden referencia, nincs választás, hogy mondjuk egy
+attribútum pointer, referencia vagy tagként tartalmazott legyen).
+Miután már áttettük Java nyelvre, tegyük be egy Java Servletbe és a böngészőből GET-es kéréssel
+(például a böngésző címsorából) kapja meg azt a mintát, amelynek kiszámolja az LZW binfáját!        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+        <para>
+            Itt annyi dolgunk van, hogy a C++ szintaktikát használó pointereket és referenciákat át kell írni Java szintaktikának megfelelőekre.
+        
+        </para>
+    </section>  
+
+    <section>
+        <title>„Gagyi”</title>
+        <para>
+Az ismert formális
+„<![CDATA[
+while (x <= t && x >= t && t != x);
+]]>” tesztkérdéstípusra adj a szokásosnál
+(miszerint x, t az egyik esetben az objektum által hordozott érték, a másikban meg az objektum
+referenciája) „mélyebb” választ, írj Java példaprogramot mely egyszer végtelen ciklus, más x, t
+értékekkel meg nem! A példát építsd a JDK Integer.java forrására3
+, hogy a 128-nál inkluzív objektum
+példányokat poolozza!
+</para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>  
+
+    <section>
+        <title>Yoda</title>
+        <para>
+Írjunk olyan Java programot, ami java.lang.NullPointerEx-el leáll, ha nem követjük a Yoda
+conditions-t! https://en.wikipedia.org/wiki/Yoda_conditions
+</para>
+
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+        <para>
+            <programlisting language="java"><![CDATA[
+            class yoda {
+ 
+            public static void main(String args[]){
+            String yoda = null;
+            if ( yoda.equals("yoda")) { System.out.println("Nem jó");
+
+            }   
+            }
+
+            }
+            ]]></programlisting>
+        </para>
+    </section>  
+    <section>
+        <title>Kódolás from scratch</title>
+        <para>
+Induljunk ki ebből a tudományos közleményből: http://crd-legacy.lbl.gov/~dhbailey/dhbpapers/bbpalg.pdf és csak ezt tanulmányozva írjuk meg Java nyelven a BBP algoritmus megvalósítását!
+Ha megakadsz, de csak végső esetben: https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitokjavat/apbs02.html#pi_jegyei (mert ha csak lemásolod, akkor pont az a fejlesztői élmény marad ki,
+melyet szeretném, ha átélnél).
+</para>
+
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>  	
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>     
+    
+	    <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Liskov!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>Liskov helyettesítés sértése</title>
+        <para>
+		Írjunk olyan OO, leforduló Java és C++ kódcsipetet, amely megsérti a Liskov elvet! Mutassunk rá a
+megoldásra: jobb OO tervezés.
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (93-99 fólia)
+(számos példa szerepel az elv megsértésére az UDPROG repóban, lásd pl. source/binom/BatfaiBarki/madarak/)
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+        <para>
+            A Liskov elv azt mondja ki, hogy: Ha S osztály T osztály leszármazottja, akkor S szabadon behelyettesíthető minden olyan helyre (paraméter, változó, stb…), ahol T típust várunk.
+            Példa sértésre:
+                <para>
+        <programlising language="java"> <![CDATA[
+                public class Bird{
+                    public void fly(){}
+                }
+                public class Duck extends Bird{}
+                ]]>
+        </programlising>
+        </para>
+        <para>
+                    Ebben az esetben még minden jól működik, hiszen a kacsa egy madár, azonban
+        <programlisting language="java"> <![CDATA[
+                    public class Ostrich extends Bird{} 
+                    ]]>
+        </programlisting>
+                    esetén a strucc már nem tudja használni a "fly" függvényt, annak ellenére hogy ő is madár.
+        </para>
+        <para>
+            Javított példa:
+        <programlising> <![CDATA[
+                    public class Bird{
+                    }
+                    public class FlyingBirds extends Bird{
+                        public void fly(){}
+                    }
+                    public class Duck extends FlyingBirds{}
+                    public class Ostrich extends Bird{} 
+                    ]]>
+        </programlising>
+        </para>
+        </para>
+    </section>
+       <section>
+        <title>Szülő-gyerek</title>
+        <para>
+rjunk Szülő-gyerek Java és C++ osztálydefiníciót, amelyben demonstrálni tudjuk, hogy az ősön
+keresztül csak az ős üzenetei küldhetőek!
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (98. fólia)4
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+        <para>
+            <para>
+            Itt két (egy Java és és egy C++) programot kellett elkészíteni, melyeken keresztül bemutatható, hogy, mindkét programban van egy "Parent", és egy "Child" osztály .
+            Mindkét osztályon belül van egy-egy definiált metódus.  A child, a parent leszármaozattja, így a parent tulajdonságai öröklődnek, emiatt a child osztály segítségével el tudjuk érni a parent-ben 
+            definiált tulajdonságokat, fordítva viszont nem. A példák ezt mutatják be
+            Java példa:
+            </para>
+            <programlisting language="java">
+<![CDATA[class Szulo
+{
+	public static void szulo_uzen()
+	{
+		System.out.println("Ez a szülő üzenete");
+	}	
+}
+
+class Gyerek extends Szulo
+{
+	public static void gyerek_uzen() 
+	{
+		System.out.println("Ez a gyerek üzenete");
+	}
+}
+
+public class szulo_gyerek 
+{
+	public static void main(String[] args) 
+	{
+		Szulo p = new Gyerek();
+		p.gyerek_uzen();
+	}
+}]]>
+        </programlisting>
+        <para>
+            Természetesen a Java-s példa hibaüzenettel fut.
+            C++ példa:
+        </para>
+        <programlisting language="c++">
+<![CDATA[#include <iostream>
+using namespace std;
+
+class Szulo {
+public:
+	void szulo_uzen()
+	{
+		cout << "Ez a szulő üzenete\n";
+	}
+};
+
+class Gyerek : public Szulo {
+	void gyerek_uzen()
+	{
+		cout << "Ez a gyerek üzenete\n";
+	}
+};
+
+int main()
+{
+	Szulo * szulo = new Gyerek();
+	szulo -> gyerek_uzen();
+}]]>
+        </programlisting>
+
+
+        </para>
+        <para>Itt egyszerűen egy olyan osztálydefiníciót kell írni, amely demonstrálja, hogy egy szülőn keresztül, csak a saját üzenete küldhető, egy hozzá tartozó gyereké már nem.
+        
+        </para>
+    </section>
+	<section>
+        <title>Anti OO</title>
+        <para>
+A BBP algoritmussal
+a Pi hexadecimális kifejtésének a 0. pozíciótól számított 10^6, 10^7, 10^8 darab
+jegyét határozzuk meg C, C++, Java és C# nyelveken és vessük össze a futási időket!
+https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apas03.html#id561066
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>
+	<section>
+        <title>deprecated - Hello, Android!</title>
+        <para>
+Élesszük fel a https://github.com/nbatfai/SamuEntropy/tree/master/cs projektjeit és vessünk össze
+néhány egymásra következőt, hogy hogyan változtak a források!
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>
+	<section>
+        <title>Hello, Android!</title>
+        <para>
+Élesszük fel az SMNIST for Humans projektet!
+https://gitlab.com/nbatfai/smnist/tree/master/forHumans/SMNISTforHumansExp3/app/src/main
+Apró módosításokat eszközölj benne, pl. színvilág.
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>
+	<section>
+        <title>Hello, SMNIST for Humans!</title>
+        <para>
+Fejleszd tovább az SMNIST for Humans projektet SMNIST for Anyone emberre szánt appá! Lásd
+az smnist2_kutatasi_jegyzokonyv.pdf-ben a részletesebb hátteret!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>
+	<section>
+        <title>Ciklomatikus komplexitás</title>
+        <para>
+Számoljuk ki valamelyik programunk függvényeinek ciklomatikus komplexitását! Lásd a fogalom
+tekintetében a https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_2.pdf (77-79
+fóliát)!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+        <para>  A Ciklomatikus komplexitás Thomas J. McCabe gráfelméletre alapuló számítása, amellyel a következőképpen fejezi ki számokkal egy forráskód komplexitását: M = E − N + 2P, ahol:
+                E: A gráf éleinek száma
+                N: A gráfban lévő csúcsok száma
+                P: Az összefüggő komponensek száma        
+                
+                A terminálban a "sudo apt-get install complexity" parancsal tudunk a komplexitás kiszámolására megfelelő programot letölteni, melyet utána "complexity --histogram --score --thresh=0 'file.c' " paranccsal tudunk használni.
+                
+                példa(torperdó játék kódját használva): https://imgur.com/a/7XiqCbj
+        </para>
+    </section>
+        
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>     
+	    <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Mandelbrot!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>Reverse engineering UML osztálydiagram</title>
+        <para>
+		UML osztálydiagram rajzolása az első védési C++ programhoz. Az osztálydiagramot a forrásokból
+generáljuk (pl. Argo UML, Umbrello, Eclipse UML) Mutassunk rá a kompozíció és aggregáció
+kapcsolatára a forráskódban és a diagramon, lásd még: https://youtu.be/Td_nlERlEOs.
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog1_6.pdf (28-32 fólia)
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+      <section>
+        <title>Forward engineering UML osztálydiagram</title>
+        <para>
+		UML-ben tervezzünk osztályokat és generáljunk belőle forrást!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+	    <section>
+        <title>Egy esettan</title>
+        <para>
+		A BME-s C++ tankönyv 14. fejezetét (427-444 elmélet, 445-469 az esettan) dolgozzuk fel!
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+	    <section>
+        <title>BPMN</title>
+        <para>
+		Rajzoljunk le egy tevékenységet BPMN-ben!
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_7.pdf (34-47 fólia)
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+	
+	    <section>
+        <title>BPEL Helló, Világ! - egy visszhang folyamat</title>
+        <para>
+		Egy visszhang folyamat megvalósítása az alábbi teljes „videó tutoriál” alapján:
+https://youtu.be/0OnlYWX2v_I
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+            <section>
+        <title>TeX UML</title>
+        <para>
+		Valamilyen TeX-es csomag felhasználásával készíts szép diagramokat az OOCWC projektről (pl.
+use case és class diagramokat).
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>         
+	<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Chomsky!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>Encoding</title>
+        <para>
+		Fordítsuk le és futtassuk a Javat tanítok könyv MandelbrotHalmazNagyító.java forrását úgy, hogy a
+fájl nevekben és a forrásokban is meghagyjuk az ékezetes betűket!
+https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/adatok.html
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+     <section>
+        <title>OOCWC lexer</title>
+        <para>
+		Izzítsuk be az OOCWC-t és vázoljuk a https://github.com/nbatfai/robocaremulator/blob/master/justine/rcemu/src/carlexer.ll lexert és kapcsolását a programunk OO
+struktúrájába!
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+    <section>
+        <title>l334d1c45</title>
+        <para>
+		Írj olyan OO Java vagy C++ osztályt, amely leet cipherként működik, azaz megvalósítja ezt a betű
+helyettesítést: https://simple.wikipedia.org/wiki/Leet (Ha ez első részben nem tetted meg, akkor írasd
+ki és magyarázd meg a használt struktúratömb memóriafoglalását!)
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+    <section>
+        <title>Full screen</title>
+        <para>
+		Készítsünk egy teljes képernyős Java programot!
+Tipp: https://www.tankonyvtar.hu/en/tartalom/tkt/javat-tanitok-javat/ch03.html#labirintus_jatek
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>     
+	<section>
+        <title>Paszigráfia Rapszódia OpenGL full screen vizualizáció</title>
+        <para>
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 	
+	<section>
+        <title>Paszigráfia Rapszódia OpenGL full screen vizualizáció</title>
+        <para>
+		Lásd vis_prel_para.pdf! Apró módosításokat eszközölj benne, pl. színvilág, textúrázás, a szintek jobb
+elkülönítése, kézreállóbb irányítás.
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+	<section>
+        <title>Paszigráfia Rapszódia LuaLaTeX vizualizáció</title>
+        <para>
+Lásd vis_prel_para.pdf! Apró módosításokat eszközölj benne, pl. színvilág, még erősebb 3D-s hatás.
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+	<section>
+        <title>Perceptron osztály</title>
+        <para>
+Dolgozzuk be egy külön projektbe a projekt Perceptron osztályát!
+Lásd https://youtu.be/XpBnR31BRJY
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 	
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>         
+	<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Stroustrup!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>JDK osztályok</title>
+        <para>
+		Írjunk olyan Boost C++ programot (indulj ki például a fénykardból) amely kilistázza a JDK összes
+osztályát (miután kicsomagoltuk az src.zip állományt, arra ráengedve)!
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+
+    <section>
+        <title>Másoló-mozgató szemantika</title>
+        <para>
+		Kódcsipeteken (copy és move ctor és assign) keresztül vesd össze a C++11 másoló és a mozgató
+szemantikáját, a mozgató konstruktort alapozd a mozgató értékadásra!
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+
+    <section>
+        <title>Hibásan implementált RSA törése</title>
+        <para>
+		Készítsünk betű gyakoriság alapú törést egy hibásan implementált RSA kódoló:
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_3.pdf (71-73 fólia) által
+készített titkos szövegen.
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+
+    <section>
+        <title>Változó argumentumszámú ctor</title>
+        <para>
+		Készítsünk olyan példát, amely egy képet tesz az alábbi projekt Perceptron osztályának bemenetére
+és a Perceptron ne egy értéket, hanem egy ugyanakkora méretű „képet” adjon vissza. (Lásd még a 4
+hét/Perceptron osztály feladatot is.)
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+
+    <section>
+        <title>Összefoglaló</title>
+        <para>
+		Az előző 4 feladat egyikéről írj egy 1 oldalas bemutató „”esszé szöveget!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+   
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>         
+	<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Gödel!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>Gengszterek</title>
+        <para>
+		Gengszterek rendezése lambdával a Robotautó Világbajnokságban
+https://youtu.be/DL6iQwPx1Yw (8:05-től)
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+    <section>
+        <title>C++11 Custom Allocator</title>
+        <para>
+		https://prezi.com/jvvbytkwgsxj/high-level-programming-languages-2-c11-allocators/ a
+CustomAlloc-os példa, lásd C forrást az UDPROG repóban!
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>      
+	    <section>
+        <title>STL map érték szerinti rendezése</title>
+        <para>
+		Például: https://github.com/nbatfai/future/blob/master/cs/F9F2/fenykard.cpp#L180
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>      
+	    <section>
+        <title>Alternatív Tabella rendezése</title>
+        <para>
+		Mutassuk be a https://progpater.blog.hu/2011/03/11/alternativ_tabella a programban a java.lang
+Interface Comparable T szerepét!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>          
+	<section>
+        <title>Prolog családfa</title>
+        <para>
+		Ágyazd be a Prolog családfa programot C++ vagy Java programba! Lásd para_prog_guide.pdf!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>      
+	    <section>
+        <title>GIMP Scheme hack</title>
+        <para>
+		Ha az előző félévben nem dolgoztad fel a témát (például a mandalás vagy a króm szöveges
+dobozosat) akkor itt az alkalom!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>      
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>         
+	<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, !</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>FUTURE tevékenység editor</title>
+        <para>
+		Javítsunk valamit a ActivityEditor.java JavaFX programon!
+https://github.com/nbatfai/future/tree/master/cs/F6
+Itt láthatjuk működésben az alapot: https://www.twitch.tv/videos/222879467
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+    <section>
+        <title>OOCWC Boost ASIO hálózatkezelése</title>
+        <para>
+		Mutassunk rá a scanf szerepére és használatára! https://github.com/nbatfai/robocaremulator/blob/master/justine/rcemu/src/carlexer.ll
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+	    <section>
+        <title>SamuCam</title>
+        <para>
+		Mutassunk rá a webcam (pl. Androidos mobilod) kezelésére ebben a projektben:
+https://github.com/nbatfai/SamuCam
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+	    <section>
+        <title>BrainB</title>
+        <para>
+		Mutassuk be a Qt slot-signal mechanizmust ebben a projektben: https://github.com/nbatfai/esporttalent-search
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+	    <section>
+        <title>OSM térképre rajzolása</title>
+        <para>
+		Debrecen térképre dobjunk rá cuccokat, ennek mintájára, ahol én az országba helyeztem el a DEAC
+hekkereket: https://www.twitch.tv/videos/182262537 (de az OOCWC Java Swinges
+megjelenítőjéből: https://github.com/nbatfai/robocar-emulator/tree/master/justine/rcwin is
+kiindulhatsz, mondjuk az komplexebb, mert ott időfejlődés is van...)
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section> 
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>         
+	<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Schwarzenegger!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>Port scan</title>
+        <para>
+		Mutassunk rá ebben a port szkennelő forrásban a kivételkezelés szerepére!
+https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#id527287
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+   <section>
+        <title>AOP</title>
+        <para>
+		Szőj bele egy átszövő vonatkozást az első védési programod Java átiratába! (Sztenderd védési
+feladat volt korábban.)
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+	<section>
+        <title>Android Játék</title>
+        <para>
+		Írjunk egy egyszerű Androidos „játékot”! Építkezzünk például a 2. hét „Helló, Android!” feladatára!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+	<section>
+        <title>Junit teszt</title>
+        <para>
+		A https://progpater.blog.hu/2011/03/05/labormeres_otthon_avagy_hogyan_dolgozok_fel_egy_pedat
+poszt kézzel számított mélységét és szórását dolgozd be egy Junit tesztbe (sztenderd védési feladat
+volt korábban).
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+	<section>
+        <title>OSCI</title>
+        <para>
+		Készíts egyszerű C++/OpenGL-es megjelenítőt, amiben egy kocsit irányítasz az úton. A kocsi
+állapotát minden pillanatban mentsd le. Ezeket add át egy Prolog programnak, ami egyszerű reflex
+ágensként adjon vezérlést a kocsinak, hasonlítsd össze a kézi és a Prolog-os vezérlést. Módosítsd
+úgy a programodat, hogy ne csak kézzel lehessen vezérelni a kocsit, hanem a Prolog reflex ágens
+vezérelje!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>   
+	<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Calvin!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>MNIST</title>
+        <para>
+		Az alap feladat megoldása, +saját kézzel rajzolt képet is ismerjen fel,
+https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol Háttérként ezt vetítsük le:
+https://prezi.com/0u8ncvvoabcr/no-programming-programming/
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+   <section>
+        <title>Deep MNIST</title>
+        <para>
+		Mint az előző, de a mély változattal. Segítő ábra, vesd össze a forráskóddal a
+https://arato.inf.unideb.hu/batfai.norbert/NEMESPOR/DE/denbatfai2.pdf 8. fóliáját!
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+<section>
+        <title>CIFAR-10</title>
+        <para>
+		Az alap feladat megoldása, +saját fotót is ismerjen fel,
+https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+<section>
+        <title>Android telefonra a TF objektum detektálója</title>
+        <para>
+		Telepítsük fel, próbáljuk ki!
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+<section>
+        <title>SMNIST for Machines</title>
+        <para>
+		Készíts saját modellt, vagy használj meglévőt, lásd: https://arxiv.org/abs/1906.12213
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+<section>
+        <title>Minecraft MALMO-s példa</title>
+        <para>
+		A https://github.com/Microsoft/malmo felhasználásával egy ágens példa, lásd pl.:
+https://youtu.be/bAPSu3Rndi8, https://bhaxor.blog.hu/2018/11/29/eddig_csaltunk_de_innentol_mi,
+https://bhaxor.blog.hu/2018/10/28/minecraft_steve_szemuvege
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>  	
+	<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Berners-Lee!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>C++ és Java összehasonlítás</title>
+        <para>
+        C++: Benedek Zoltán, Levendovszky Tihamér Szoftverfejlesztés C++ nyelven
+        </para>
+		<para>
+        Java: Nyékyné Dr. Gaizler Judit et al. Java 2 útikalauz programozóknak 5.0 I-II
+		</para>
+        <para>
+        </para>
+    </section>        
+
+    <section>
+        <title>Python</title>
+        <para>
+        Python: Forstner Bertalan, Ekler Péter, Kelényi Imre: Bevezetés a mobilprogramozásba.
+        Gyors prototípus-fejlesztés Python és Java nyelven (35-51 oldal), a kijelölt oldalakból élmény-olvasónapló
+        </para>
+		<para>
+        </para>
+        <para>
+        </para>
+        <para>
+        </para>
+        <para>
+        </para>
+        <para>
+        </para>
+    </section>  
+</chapter>  	
+    
+            
+</part>                                                              
+
+    <bibliography xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <title>Irodalomjegyzék</title>
+    <bibliodiv>
+        <title>Általános</title>
+        <biblioentry xml:lang="hu">
+            <abbrev>MARX</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>György</firstname>
+                        <surname>Marx</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>Gyorsuló idő</title>
+            <publisher>
+                <publishername>
+                    Typotex
+                </publishername>
+            </publisher>
+            <pubdate>2005</pubdate>
+        </biblioentry>  
+    </bibliodiv> 
+    <bibliodiv>
+        <title>C</title>
+        <biblioentry>
+            <abbrev>KERNIGHANRITCHIE</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Brian W.</firstname>
+                        <surname>Kernighan</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Dennis M.</firstname>
+                        <surname>Ritchie</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>A C programozási nyelv</title>
+            <publisher>
+                <publishername>Bp., Műszaki</publishername>
+            </publisher>
+            <pubdate>1993</pubdate>
+        </biblioentry>            
+    </bibliodiv>
+    <bibliodiv>
+        <title>C++</title>
+        <biblioentry>
+            <abbrev>BMECPP</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Zoltán</firstname>
+                        <surname>Benedek</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Tihamér</firstname>
+                        <surname>Levendovszky</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>Szoftverfejlesztés C++ nyelven</title>
+            <publisher>
+                <publishername>Bp., Szak Kiadó</publishername>
+            </publisher>
+            <pubdate>2013</pubdate>
+        </biblioentry>            
+    </bibliodiv>
+    <bibliodiv>
+        <title>Lisp</title>
+        <biblioentry>
+            <abbrev>METAMATH</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Gregory</firstname>
+                        <surname>Chaitin</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>META MATH! The Quest for Omega</title>
+            <publisher>
+                <publishername>
+                    <link xlink:href="http://arxiv.org/PS_cache/math/pdf/0404/0404335v7.pdf">http://arxiv.org/PS_cache/math/pdf/0404/0404335v7.pdf</link>
+                </publishername>
+            </publisher>
+            <pubdate>2004</pubdate>
+        </biblioentry> 
+    </bibliodiv>    
+</bibliography>     
+          
+            <acknowledgements xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <para>
+        Köszönet illeti a
+        NEMESPOR, <link xlink:href="https://groups.google.com/forum/#!forum/nemespor">https://groups.google.com/forum/#!forum/nemespor</link>, 
+        az UDPROG tanulószoba, <link xlink:href="https://www.facebook.com/groups/udprog">https://www.facebook.com/groups/udprog</link>, 
+        a DEAC-Hackers előszoba, <link xlink:href="https://www.facebook.com/groups/DEACHackers">https://www.facebook.com/groups/DEACHackers</link> 
+        (illetve egyéb alkalmi szerveződésű szakmai csoportok) 
+        tagjait inspiráló érdeklődésükért és hasznos észrevételeikért.         
+    </para>                 
+    <para>
+        Ezen túl kiemelt köszönet illeti az említett UDPROG közösséget, mely a Debreceni Egyetem reguláris 
+        programozás oktatása tartalmi szervezését támogatja. Sok példa eleve ebben a közösségben született, vagy itt került
+        említésre és adott esetekben szerepet kapott, mint oktatási példa.         
+    </para>                 
+</acknowledgements>     
+
+</book>

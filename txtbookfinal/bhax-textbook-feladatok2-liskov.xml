@@ -1,0 +1,255 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Liskov!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>Liskov helyettesítés sértése</title>
+        <para>
+		Írjunk olyan OO, leforduló Java és C++ kódcsipetet, amely megsérti a Liskov elvet! Mutassunk rá a
+megoldásra: jobb OO tervezés.
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (93-99 fólia)
+(számos példa szerepel az elv megsértésére az UDPROG repóban, lásd pl. source/binom/BatfaiBarki/madarak/)
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+        <para>
+            
+            A Liskov elv azt mondja ki, hogy: Ha S osztály T osztály leszármazottja, akkor S szabadon behelyettesíthető minden olyan helyre (paraméter, változó, stb…), ahol T típust várunk.
+            Példa sértésre:
+                <para>
+<programlising language="java"> <![CDATA[
+                public class Bird{
+                    public void fly(){}
+                }
+                public class Duck extends Bird{}
+                ]]>
+</programlising>
+        </para>
+        <para>
+                    Ebben az esetben még minden jól működik, hiszen a kacsa egy madár, azonban
+<programlisting language="java"> <![CDATA[
+                    public class Ostrich extends Bird{} 
+                    ]]>
+</programlisting>
+                    esetén a strucc már nem tudja használni a "fly" függvényt, annak ellenére hogy ő is madár.
+        </para>
+        <para>
+            Javított példa:
+<programlising language="java"> <![CDATA[
+                    public class Bird{
+                    }
+                    public class FlyingBirds extends Bird{
+                        public void fly(){}
+                    }
+                    public class Duck extends FlyingBirds{}
+                    public class Ostrich extends Bird{} 
+                    ]]>
+</programlising>
+        </para>
+        </para>
+    </section>
+       <section>
+        <title>Szülő-gyerek</title>
+        <para>
+írjunk Szülő-gyerek Java és C++ osztálydefiníciót, amelyben demonstrálni tudjuk, hogy az ősön
+keresztül csak az ős üzenetei küldhetőek!
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (98. fólia)4
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+        <para>
+            <para>
+            Itt két (egy Java és és egy C++) programot kellett elkészíteni, melyeken keresztül bemutatható, hogy, mindkét programban van egy "Parent", és egy "Child" osztály .
+            Mindkét osztályon belül van egy-egy definiált metódus.  A child, a parent leszármaozattja, így a parent tulajdonságai öröklődnek, emiatt a child osztály segítségével el tudjuk érni a parent-ben 
+            definiált tulajdonságokat, fordítva viszont nem. A példák ezt mutatják be
+            Java példa:
+            </para>
+            <programlisting language="java">
+<![CDATA[class Szulo
+{
+	public static void szulo_uzen()
+	{
+		System.out.println("Ez a szülő üzenete");
+	}	
+}
+
+class Gyerek extends Szulo
+{
+	public static void gyerek_uzen() 
+	{
+		System.out.println("Ez a gyerek üzenete");
+	}
+}
+
+public class szulo_gyerek 
+{
+	public static void main(String[] args) 
+	{
+		Szulo p = new Gyerek();
+		p.gyerek_uzen();
+	}
+}]]>
+        </programlisting>
+        <para>
+            Természetesen a Java-s példa hibaüzenettel fut.
+            C++ példa:
+        </para>
+        <programlisting language="c++">
+<![CDATA[#include <iostream>
+using namespace std;
+
+class Szulo {
+public:
+	void szulo_uzen()
+	{
+		cout << "Ez a szulő üzenete\n";
+	}
+};
+
+class Gyerek : public Szulo {
+	void gyerek_uzen()
+	{
+		cout << "Ez a gyerek üzenete\n";
+	}
+};
+
+int main()
+{
+	Szulo * szulo = new Gyerek();
+	szulo -> gyerek_uzen();
+}]]>
+        </programlisting>
+
+
+        </para>
+        <para>Itt egyszerűen egy olyan osztálydefiníciót kell írni, amely demonstrálja, hogy egy szülőn keresztül, csak a saját üzenete küldhető, egy hozzá tartozó gyereké már nem.
+        
+        </para>
+    </section>
+	<section>
+        <title>Anti OO</title>
+        <para>
+A BBP algoritmussal
+a Pi hexadecimális kifejtésének a 0. pozíciótól számított 10^6, 10^7, 10^8 darab
+jegyét határozzuk meg C, C++, Java és C# nyelveken és vessük össze a futási időket!
+https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apas03.html#id561066
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>
+	<section>
+        <title>deprecated - Hello, Android!</title>
+        <para>
+Élesszük fel a https://github.com/nbatfai/SamuEntropy/tree/master/cs projektjeit és vessünk össze
+néhány egymásra következőt, hogy hogyan változtak a források!
+
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>
+	<section>
+        <title>Hello, Android!</title>
+        <para>
+Élesszük fel az SMNIST for Humans projektet!
+https://gitlab.com/nbatfai/smnist/tree/master/forHumans/SMNISTforHumansExp3/app/src/main
+Apró módosításokat eszközölj benne, pl. színvilág.
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>
+	<section>
+        <title>Hello, SMNIST for Humans!</title>
+        <para>
+Fejleszd tovább az SMNIST for Humans projektet SMNIST for Anyone emberre szánt appá! Lásd
+az smnist2_kutatasi_jegyzokonyv.pdf-ben a részletesebb hátteret!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>
+	<section>
+        <title>Ciklomatikus komplexitás</title>
+        <para>
+Számoljuk ki valamelyik programunk függvényeinek ciklomatikus komplexitását! Lásd a fogalom
+tekintetében a https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_2.pdf (77-79
+fóliát)!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+        <para>  A Ciklomatikus komplexitás Thomas J. McCabe gráfelméletre alapuló számítása, amellyel a következőképpen fejezi ki számokkal egy forráskód komplexitását: M = E − N + 2P, ahol:
+                <para>
+                E: A gráf éleinek száma
+                N: A gráfban lévő csúcsok száma
+                P: Az összefüggő komponensek száma        
+                </para>
+                A terminálban a "sudo apt-get install complexity" parancsal tudunk a komplexitás kiszámolására megfelelő programot letölteni, melyet utána "complexity --histogram --score --thresh=0 'file.c' " paranccsal tudunk használni.
+                
+                példa(torperdó játék kódját használva):
+                <para>
+    	<figure>
+    		<title>madarszulo</title>
+<mediaobject>
+<imageobject>
+<imagedata fileref="img/madarszulo.png" scale="50"/>
+</imageobject>
+</mediaobject>
+</figure>   
+</para>
+        </para>
+    </section>
+        
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                
