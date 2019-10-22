@@ -22,6 +22,76 @@ osztályát (miután kicsomagoltuk az src.zip állományt, arra ráengedve)!
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+        <para>
+            A Boost C++ program segítségével kell a JDK  összes osztályát az src.zip-ből kilistázni. Ehhez a fénykard programot hívtam segítségül annyi különbséggel, hogy itt .java fájlokat fogunk megkeresni, kiíratni és megszmálni.
+        </para>
+        <para>
+
+      <programlisting language = "C++">
+          <![CDATA[ 
+          
+#include <iostream>
+#include <vector>
+#include <string>
+#include <stdio.h>
+#include <boost/filesystem.hpp>
+#include <boost/filesystem/fstream.hpp>
+#define GetCurrentDir getcwd
+using namespace std;
+vector<string> searchRootFolders (vector<string> folders);
+void readClasses (string path, vector<string>& classes);
+string GetCurrentWorkingDir( void ) {
+      char buff[FILENAME_MAX];
+      GetCurrentDir( buff, FILENAME_MAX );
+      string current_working_dir(buff);
+      return current_working_dir;
+}
+int main(int argc, char const *argv[])
+{
+      vector<string> roots = {
+        GetCurrentWorkingDir()+"/"+"src"
+      };
+      vector<string> classes = searchRootFolders ( roots );
+      for(auto &i : classes)
+      {
+      cout << i << endl;
+      }
+      cout << "Összesen " << classes.size() << " osztály van a src-zip-ben\n";
+      return 0;
+}
+void readClasses ( boost::filesystem::path path, vector<string>& classes)
+{
+      if ( is_regular_file ( path ) ) {
+        std::string ext ( ".java" );
+          if ( !ext.compare ( boost::filesystem::extension ( path ) ) ){
+            classes.push_back(path.string());
+      }
+      } else if ( is_directory ( path ) )
+        for ( boost::filesystem::directory_entry & entry : boost::filesystem::
+        directory_iterator ( path ) )
+      readClasses ( entry.path(), classes );
+      }
+      vector<string> searchRootFolders (vector<string> folders)
+      {
+      vector <string> classes;
+      for ( const auto & path : folders)
+      {
+      boost::filesystem::path root ( path );
+      readClasses ( root, classes);
+      }
+      return classes;
+}
+      
+      
+          ]]>
+    </programlisting>
+    </para>
+    <para>
+      A futtatáshoz "sudo apt-get install libboost-all-dev" -el kell letöltenünk a megfelelő fileokat,
+      aztán fordításnál "-lboost_system -lboost_filesystem -lboost_file_options -std=c++14" parancsot használunk
+      A program futtatása után megkapjuk hogy mennyi java osztály van a jdk-ben amit használunk. 
+    </para>
+
     </section>        
 
 
@@ -41,6 +111,67 @@ szemantikáját, a mozgató konstruktort alapozd a mozgató értékadásra!
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+        A Prog 1-es LZW binfa-t használom a feladathoz.
+        <para>
+      A Binfa másoló konstruktora: 
+      <programlisting language = "C++">
+          <![CDATA[ 
+          LZWBinFa ( const LZWBinFa & regi ) {
+              std::cout << "LZWBinFa copy ctor" << std::endl;
+              gyoker = masol(regi.gyoker, regi.fa);
+          }
+          ]]>
+        </programlisting>
+
+      Ezzel, a régi fa mintájára egy újat készítünk másolással, viszont nem default érték szerinti paraméter
+      átadással, ugyanis abban az esetben a fa nem változna. Ahhoz hogy egy másik fát kapjunk saját konstruktorra van szükség:
+
+      <programlisting language = "C++">
+          <![CDATA[ 
+          
+          Csomopont *  masol ( Csomopont * elem, Csomopont * regifa ) {
+          Csomopont * ujelem = NULL;
+          if ( elem != NULL ) {
+               ujelem = new Csomopont ( elem->getBetu() );
+               ujelem->ujEgyesGyermek ( masol ( elem->egyesGyermek (), regifa ) );
+               ujelem->ujNullasGyermek ( masol ( elem->nullasGyermek (), regifa ) );
+               if ( regifa == elem )
+                    fa = ujelem;
+          }
+          return ujelem;
+     }
+       ]]>
+      </programlisting>
+      
+      Paraméterként megadva a régi fa gyökerét és a fát, csomópontonként rekurzívan átmásoljuk a gyoker-be, viszont
+      minden node-nál ujelem néven új Csomopont-ot hozunk létre melynek így már memóracíme eltérő lesz, ezáltal a fánk is máshogy néz ki. 
+
+    </para>
+
+    <para>
+
+      A mozgató konstruktornak ezzel szemben az a lényege, hogy magát a régi fát mozgatjuk át egy másik memóriacímre,
+      a régi címet üresen hagyva. Ehhez ezt a konstruktort használjuk:
+
+      <programlisting language = "C++">
+          <![CDATA[ 
+          
+          LZWBinFa (LZWBinFa && regi) {
+              std::cout << "LZWBinFa move ctor" << std::endl;
+              gyoker = nullptr;
+              *this = std::move(regi);
+          }
+          
+          
+          ]]>
+        </programlisting>
+
+      A gyökeret nullázzuk, ezután a move függvénynek átadjuk paraméterként a régi fát, azaz azt amit mozgatni szeretnénk és 
+      átmozgatjuk a regi-t az újba, a régit üresen hagyva.
+
+
+
+    </para>
     </section>        
 
 
@@ -60,6 +191,94 @@ készített titkos szövegen.
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+            <para>
+
+      Az RSA algoritmust 1976-ban fejlesztette ki Ron Rivest, Adi Shamir és Len Adleman, az RSA elvenezés a nevük kezdőbetűiből ered.
+      Napjainkban is az egyik legelterjedtebb titkosító eljárás nagy biztonságának hála. A lényege, hogy két darab kulcs létezik, egy kódoló és egy dekódoló, 
+      melyek mindegyike egy-egy számpár. Az egyik a modulus és ez 512-4096 bit hosszú lehet, minnél nagyobb annál biztonságosabb a titkosítás.
+      Egy elegendő nagyságú kulcs feltörésének jelenleg nincs ismert módja.  A kodoló kulcs publikus viszont a dekódoló privát.
+
+
+
+    </para>
+
+    <para>
+
+      A kívánt szöveg karaktereit ASCII kóddá alakítjuk a modPow fügvénnyel, amiben e-edikre (exponent) emelünk m-mel (modolus) osztva és ennek a műveletnek a maradékát kapjuk.
+      Amit fontos megjegyezni, hogy az e exponensünk, a kulcsunk egyik párja az nem más minta d kulcsunk inverze lesz, ez fogja
+      nekünk biztosítani, hogy tudjunk majd dekódolni is. A visszafejtés szinte ugyanez lesz, csak nem e-edikre emelünk, hanem
+      d-edikre, a modolus marad ugyanaz, majd a kapott ASCII kódot visszaalakítjuk. 
+
+     
+
+    </para>
+    <para>
+
+      <programlisting language = "Java">
+          <![CDATA[ 
+import java.util.Scanner;
+public class RSA {
+    public static void main(String[] args) {
+        KulcsPar jSzereplo = new KulcsPar();
+        String szoveg;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Adja meg a titkosítani kívánt szöveget: ");
+        szoveg=sc.nextLine();
+        byte[] buffer = szoveg.getBytes();
+        java.math.BigInteger[] titkos = new java.math.BigInteger[buffer.length];
+        for (int i = 0; i < titkos.length; ++i) {
+            titkos[i] = new java.math.BigInteger(new byte[]{buffer[i]});
+            titkos[i] = titkos[i].modPow(jSzereplo.e, jSzereplo.m);
+        }
+        for (java.math.BigInteger t : titkos) {
+            System.out.print(t);
+            System.out.println();
+        }
+        for (int i = 0; i < titkos.length; ++i) {
+            titkos[i] = titkos[i].modPow(jSzereplo.d, jSzereplo.m);
+            buffer[i] = titkos[i].byteValue();
+        }
+        System.out.println("\n" + new String(buffer));
+    }
+}
+class KulcsPar {
+    java.math.BigInteger d,e,m;
+    public KulcsPar() {
+        int meretBitekben = 700 * (int) (java.lang.Math.log((double) 10)
+                / java.lang.Math.log((double) 2));
+        java.math.BigInteger p = new java.math.BigInteger(meretBitekben, 100, new java.util.
+                Random());
+        java.math.BigInteger q = new java.math.BigInteger(meretBitekben, 100, new java.util.
+                Random());
+        m = p.multiply(q);
+        java.math.BigInteger z = p.subtract(java.math.BigInteger.ONE).multiply(q.subtract(java.
+                math.BigInteger.ONE));
+        do {
+            do {
+                d = new java.math.BigInteger(meretBitekben, new java.util.Random());
+            } while (d.equals(java.math.BigInteger.ONE));
+        } while (!z.gcd(d).equals(java.math.BigInteger.ONE));
+        e = d.modInverse(z);
+    }
+}
+          
+            ]]>
+      </programlisting>
+
+
+      <figure>
+        <title>RSA</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="../Prog2Stroustrup/rsa.png" format="PNG" scale="55"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      
+      
+      
+      
+    </para>
     </section>        
 
 
