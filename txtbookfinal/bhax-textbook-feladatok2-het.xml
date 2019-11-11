@@ -22,8 +22,56 @@ Itt láthatjuk működésben az alapot: https://www.twitch.tv/videos/222879467
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+        <para>
+Az "ActivityEditor" futtatásához szükséges parancsok:
+
+<programlisting><![CDATA[
+$ git clone https://github.com/nbatfai/future.git
+$ cd future/cs/F6
+$ javac ActivityEditor.java
+$ java ActivityEditor --city=Debrecen --props=me.props,gaming.props,programming.props]]>
+</programlisting>
+</para>
+
+<para>
+Az editort CSS stíluslappal lehet szépíteni, ehhez azonban az alábbi kódra is szükség van:
+
+<programlisting language="Java"><![CDATA[
+public class ActivityEditor extends javafx.application.Application {
+    private static String path;
+    public static void main(String[] args) {
+	path="style.css";
+        javafx.application.Application.launch(args);
+    }]]>
+</programlisting>
+</para>
+
+<para>
+Az editor dobozainak fő háttérszíne a világoszöld, a tevékenységek és tulajdonságok sötétkékek lesznek.
+Ha rákattintunk egy dobozra, akkor annak szegélye is sötétkékké válik.
+A címkék háttere halvány-szürke.
+Az alábbi kód a CSS stíluslapé:
+
+<programlisting><![CDATA[
+.tree-cell{
+	-fx-background-color: #8ed49d;
+	-fx-text-fill: #2200ff;
+}
+.vbox{
+	-fx-background-color: #2f00ff;
+}
+.label{
+	-fx-text-fill: #2f00ff;
+	-fx-background-color: #eee9e1;
+}
+.content{
+	-fx-background-color: #8ed49d;
+}]]>
+</programlisting>
+(ide még fog jönni egy kép)
+</para>
     </section>        
-    <section>
+<section>
         <title>OOCWC Boost ASIO hálózatkezelése</title>
         <para>
 		Mutassunk rá a scanf szerepére és használatára! https://github.com/nbatfai/robocaremulator/blob/master/justine/rcemu/src/carlexer.ll
@@ -37,6 +85,31 @@ Itt láthatjuk működésben az alapot: https://www.twitch.tv/videos/222879467
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+        <para>
+        Tutor: <link xlink:href="https://drive.google.com/file/d/12ahRzjFAYkBWgYpLjjAlWxhHzq6XKFIe/view?fbclid=IwAR0mrN5tusZamZ51WA0kanKZ1Bqj4som0WAax1u5ysWL-XQvYk4mnnmdbvU">Kovács Ferencz</link>
+        </para>
+
+<para>
+Az OOCWC (Robocar World Championship) egy páréves platform, melynek célja volt a forgalomirányítási algoritmusok kutatása és a robotautók terjedésének vizsgálata.
+A "https://github.com/nbatfai/robocar-emulator" Robocar City Emulator lehetővé tette volna fejlesztők számára új modellek és elméletek tesztelését.
+A debreceni Justine prototípus része a CarLexer, melynek sscanf függvényét kell feldolgoznunk. 
+</para>
+
+<para>
+A sscanf függvény addig dolgozza fel a formázott stringből az adatokat, amíg meg nem kapja a Gangster négy argumentumát.
+A %n az olvasott karakterek számát rögzíti, az nn változóba kerülnek tehát az összesen beolvasottak száma.
+A data segítségével tudjuk olvasni a még beolvasatlan adatokat.
+Ezt a pointert a beolvasott karakterek méretével toljuk el, így a data+nn az olvasatlan rész elejére fog mutatni.
+Az <![CDATA[<OK %d %u %u %u>]]> alak teljesülése esetén egy gengszter összes adata beolvasásra került, tehát létrehozunk egy új objektumot és belehelyezzük a gangster vektorba.
+
+<programlisting language="C++"><![CDATA[
+while (std::sscanf (data+nn, "<OK %d %u %u %u>%n", &idd, &f, &t, &s, &n) == 4)
+    {
+        nn += n;
+        gangsters.push_back (Gangster {idd, f, t, s});
+    }]]>
+</programlisting>
+</para>
     </section> 
 	    <section>
         <title>SamuCam</title>
@@ -53,6 +126,120 @@ https://github.com/nbatfai/SamuCam
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+        <para>
+            A "https://github.com/nbatfai/samucam" linken található Samucam kísérlet lényege, hogy a program képes felismerni, tanulmányozni az emberi arcokat videók és fotók alapján.
+            Ugyan az emberi arcok megkülönböztetése nehézkessé válik, az arcfelismerés jól működik az OpenCV könyvtár segítségével.
+            A videók és fotók megmutatásához használhatjuk Androidos készülékünk kameráját, de jelen esetben én egy otthoni laptop kameráját használtam.
+</para>
+
+<para>
+A SamuCam.cpp-ben látható, hogy a videoCapture open függvénye nyitja meg a VideoStream-et.
+Mivel alapból telefonos használatra íródott a program, ezért a VideoStream helyett 0-t kell írnunk, ha webkamerával szeretnénk dolgozni.
+Ezután beállítjuk a kamerakép szélességét, magasságát és FPS értékét.
+ 
+<programlisting language="C++"><![CDATA[
+SamuCam::SamuCam ( std::string videoStream, int width = 176, int height = 144 )
+  : videoStream ( videoStream ), width ( width ), height ( height )
+{
+  openVideoStream();
+}
+SamuCam::~SamuCam ()
+{
+}
+void SamuCam::openVideoStream()
+{
+  videoCapture.open ( 0 );
+  videoCapture.set ( CV_CAP_PROP_FRAME_WIDTH, width );
+  videoCapture.set ( CV_CAP_PROP_FRAME_HEIGHT, height );
+  videoCapture.set ( CV_CAP_PROP_FPS, 10 );
+}]]>
+</programlisting>
+</para>
+
+<para>
+A CascadeClassifier alapvetően tárgyak felismerését segíti, jelen esetben pedig ez teszi lehetővé a kameraképen látható arcok feldolgozását. 
+A helyes működés érdekében le fogok szedni a GitHub-ról egy frontal face XML-t, melyben az értékek a kamerával szemben elhelyezett arcképek felismerését biztosítja. 
+
+<programlisting language="C++"><![CDATA[
+void SamuCam::run()
+{
+  cv::CascadeClassifier faceClassifier;
+  std::string faceXML = "lbpcascade_frontalface.xml"; // https://github.com/Itseez/opencv/tree/master/data/lbpcascades
+  if ( !faceClassifier.load ( faceXML ) )
+    {
+      qDebug() << "error: cannot found" << faceXML.c_str();
+      return;
+    }]]>
+</programlisting>
+</para>
+
+<para>
+Képkockánként kerül beolvasásra a kamerakép a read függvényben.
+Ha kap egy képkockát, akkor első lépésként átméretezi, majd szürkére átszínezi.
+Az equalizeHist függvény kiegyenlíti a szürke képkocka hisztogramját.
+
+<programlisting language="C++"><![CDATA[
+while ( videoCapture.read ( frame ) )
+        {
+          if ( !frame.empty() )
+            {
+              cv::resize ( frame, frame, cv::Size ( 176, 144 ), 0, 0, cv::INTER_CUBIC );
+              std::vector<cv::Rect> faces;
+              cv::Mat grayFrame;
+              cv::cvtColor ( frame, grayFrame, cv::COLOR_BGR2GRAY );
+              cv::equalizeHist ( grayFrame, grayFrame );]]>
+</programlisting>
+</para>
+
+<para>
+A detectMultiScale függvény segítségével történik a képkockán lévő arcok keresése.
+Ha talált egy arcot, akkor az alapján létrehozunk egy QImage-t. 
+A faceChanged egy signal, bekövetkezte után az arc köré rajzolunk egy keretet, és egy újabb QImage-t készítünk.
+Ha pedig a webcamChanged signal bekövetkezett, akkor 80 ms-t követően következhet egy újabb képkocka beolvasása.
+
+<programlisting language="C++"><![CDATA[
+              faceClassifier.detectMultiScale ( grayFrame, faces, 1.1, 3, 0, cv::Size ( 60, 60 ) );
+              if ( faces.size() > 0 )
+                {
+                  cv::Mat onlyFace = frame ( faces[0] ).clone();
+                  QImage* face = new QImage ( onlyFace.data,
+                                              onlyFace.cols,
+                                              onlyFace.rows,
+                                              onlyFace.step,
+                                              QImage::Format_RGB888 );
+                  cv::Point x ( faces[0].x-1, faces[0].y-1 );
+                  cv::Point y ( faces[0].x + faces[0].width+2, faces[0].y + faces[0].height+2 );
+                  cv::rectangle ( frame, x, y, cv::Scalar ( 240, 230, 200 ) );
+                  emit  faceChanged ( face );
+                }
+              QImage*  webcam = new QImage ( frame.data,
+                                             frame.cols,
+                                             frame.rows,
+                                             frame.step,
+                                             QImage::Format_RGB888 );
+              emit  webcamChanged ( webcam );
+            }
+          QThread::msleep ( 80 );
+        }]]>
+</programlisting>
+</para>
+
+<para>
+A SamuCam futtatásához először le kell szednünk a GitHub projektet, majd pedig a korábban említett XML fájlt.
+A Qt keretrendszer segítségével létrehozzuk a Makefile-t, ezután pedig indíthatjuk is a programot az alábbi módon:.
+
+<programlisting><![CDATA[
+git clone https://github.com/nbatfai/SamuCam.git
+cd SamuCam/
+wget https://github.com/Itseez/opencv/raw/master/data/lbpcascades/lbpcascade_frontalface.xml
+git checkout vInitialHack
+ ~/Qt/5.9.8/gcc_64/bin/qmake SamuLife.pro
+ make
+ ./SamuCam]]>
+</programlisting>
+(A végeredményről itt is lesz kép)
+</para>
+
     </section> 
 	    <section>
         <title>BrainB</title>
