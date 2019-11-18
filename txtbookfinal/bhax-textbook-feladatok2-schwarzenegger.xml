@@ -22,6 +22,29 @@ https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#id52728
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+        
+        <programlisting><![CDATA[
+            public class Scan {
+public static void main(String[] args) {
+for(int i=0; i<65535; ++i)
+try {
+java.net.Socket socket = new java.net.Socket(args[0], i);
+System.out.println(i + " figyeli");
+socket.close();
+} catch (Exception e) {
+System.out.println(i + " nem figyeli");
+}
+}
+}
+]]>
+        </programlisting>
+        <para>
+            A try-catch-ben egy új socket-et akarunk létrehozni és, ha sikerül akkor csatlakozunk rá, kiírjuk, hogy figyeli
+            az i-edik portot és bezárjuk azt. Ha nem sikerült csatlakozni rá annak több oka is lehet, az egyik az, hogy 
+            a portot nem figyeli senki és erre kapunk egy ConnectException errort. A másik lehetőség, hogy miért nem sikerült csatlakozni
+            az, hogy a host neve rosszul van megadva. A harmadik lehetőség, hogy a portszám amire akarunk csatlakozni
+            kívül esik a 0-65535 intervallumon amelyet megadtunk.
+        </para>
     </section>        
 
    <section>
@@ -39,6 +62,45 @@ feladat volt korábban.)
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+        
+    <programlisting><![CDATA[
+            public aspect MyAspect {
+void around(char b, LZWBinFa f):
+target(f) && call(void egyBitFeldolg (char))&& args(b)
+{
+if (b == ’0’)
+{
+if (f.fa.nullasGyermek()==null)
+{
+LZWBinFa.Csomopont uj = f.new Csomopont(’0’);
+f.fa.ujNullasGyermek(uj);
+f.fa = f.gyoker;
+f.fa = f.fa.nullasGyermek();
+} else {
+f.fa = f.fa.nullasGyermek();
+}
+} else {
+if (f.fa.egyesGyermek() == null) {
+LZWBinFa.Csomopont uj = f.new Csomopont(’1’);
+f.fa.ujEgyesGyermek(uj);
+f.fa = f.gyoker;
+f.fa = f.fa.egyesGyermek();
+} else {
+f.fa = f.fa.egyesGyermek();
+}
+}
+}}
+]]>
+    </programlisting>
+    <para>
+        A programunk annyit csinál, hogy az eredeti egyBitFeldolg függvény helyett, az aspect osztályban lévő hívódik meg.
+        Ennek oka az around függvény, ami két paraméterként kap egy betűt és egy LZWBinFa objektumot. Az around függvény paraméter listájában látható,
+        hogy a LZWBinFa a cél objektum a char pedig a metódus paramétere. Ezek után programunk úgy működik
+        mint a rendes bitfeldolgozás a binfában annyi különbséggel, hogy ha beszúrtunk egy elemet akkor a gyökérre
+        állítás után lépünk egy elemet előre, ha 0 elemet szúrtunk be akkor a gyökér nulladik elemére lépünk, ha
+        1-et szúrtunk be akkor a gyökér 1-es elemére lépünk.
+
+    </para>
     </section>        
 	<section>
         <title>Android Játék</title>
@@ -72,6 +134,33 @@ volt korábban).
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+        <para>
+            A feladat az volt, hogy a Tanár úr által készített posztban kézzel számított mélységet és szórást dolgozzuk
+            be egy Junit tesztbe. Vettünk egy rövid teszt sorozatot (01111001001001000111), ezt betesszük
+            inputként a LZWBinFa.java fájl egyBitFeldoz() metódusának, ami karakterenként feldogozza a megadott
+            sztringet. Ezután az assertEquals metódussal ellenőrizzük, hogy az értékek ugyanazok-e, mint az alap esetben.
+            Ha ugyanaz jön ki, akkor jó a program. Egyébként ez a metódus 3 paramétert kap. Az első érték
+            az, amit Tanár úr számolt, a második, amit a Binfa adott eredményül, a harmadik paraméter a megengedett
+            eltérés az első két paraméter között.
+        </para>
+        <programlisting><![CDATA[
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+public class BinfaTest {
+LZWBinFa binfa = new LZWBinFa();
+@Test
+public void test() {
+for(char c: "01111001001001000111".toCharArray()) {
+binfa.egyBitFeldolg(c);
+System.out.println(c);
+}
+assertEquals(4.0, binfa.getMelyseg(), 0.000001);
+assertEquals(2.75, binfa.getAtlag(), 0.001);
+assertEquals(0.95742, binfa.getSzoras(), 0.0001);
+}
+}
+]]>
+        </programlisting>
     </section>        
 	<section>
         <title>OSCI</title>
